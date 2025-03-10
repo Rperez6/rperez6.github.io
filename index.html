@@ -3,129 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Phishing Detection Exercise</title>
+    <title>Countdown to Mr.Pickles's Birthday</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-        }
-
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .email-header {
+            font-family: 'Arial', sans-serif;
             text-align: center;
+            padding: 50px;
+            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            color: white;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 10vh;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 4em;
+            text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
         }
-
-        .email-content {
-            font-size: 16px;
-            line-height: 1.5;
+        #countdown {
+            font-size: 3em;
+            font-weight: bold;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
         }
-
-        .highlighted {
-            background-color: red;
+        .button {
+            padding: 15px 25px;
+            font-size: 1.2em;
             color: white;
-        }
-
-        .fake-email {
-            font-weight: bold;
-            color: red;
-            margin-bottom: 10px;
-            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
-            user-select: none; /* Prevent text selection within this element */
-        }
-
-        .completion-message {
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            color: green;
-            margin-top: 20px;
-        }
-
-        .special-offer {
-            background-color: #f0f0f0;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
-        }
-
-        .prompt-message {
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            color: #333;
-            margin-top: 20px;
-        }
-
-        /* Blue button style */
-        .blue-button {
-            background-color: blue;
-            color: white;
-            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.6);
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
+            box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+        .pickle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: url('https://raw.githubusercontent.com/Rperez6/rperez6.github.io/main/5eafecb3f7f4540004b715e7.png') no-repeat center/contain;
+            pointer-events: none;
+            background-color: transparent;
         }
     </style>
 </head>
 <body>
-    <div class="prompt-message">Click on all objects that appear suspicious:</div>
-<div  class="prompt-message"> <li> It may be typos and obvious mistakes</li></div>
-<div  class="prompt-message"> <li> There are 4 objects to select</li></div>
-    <div class="email-container">
-        <div class="email-header">
-            <img src="data:image/jpeg;base64,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" alt="Office 365 Logo">
-            <h1>Important Update Required</h1>
-        </div>
-        <div class="email-content">
-            <p class="fake-email"><span class="suspicious-click">From:garryo36@0fice365-scam-email.com</span></p>
-            <p><span class="suspicious-click">Dear Bob LAST NAME,</span></p>
-            <p>URGENT: Your Office 365 account is compromised!</p>
-            <p>Your account is at risk! We detected unusual<span class="suspicious-click"> activty and requre your imediate atention to secure it.</span></p>
-            <p>Please click here to update your<span class="suspicious-click"> lagin detales</span> now! <button class="blue-button">Click here</button></p>
-            <p>Act quickly to avoid data loss. Your prompt response is crtical!</p>
-        </div>
-        <p id="message"></p>
-    </div>
-
-    <div class="completion-message" id="completion-message"></div>
+    <h1 id="title">Countdown to Mr.Pickles's Birthday</h1>
+    <div id="countdown">Loading...</div>
+    <button class="button" onclick="addToOutlookCalendar()">Add to Outlook Calendar (because Mr.Pickles never forgets... but you might)</button>
 
     <script>
-        const suspiciousClicks = document.querySelectorAll('.suspicious-click');
-        const completionMessage = document.getElementById('completion-message');
-
-        suspiciousClicks.forEach(clickItem => {
-            clickItem.addEventListener('click', () => {
-                clickItem.classList.toggle('highlighted');
-                checkCompletion();
-            });
-        });
-
-        function checkCompletion() {
-            const highlightedClicks = document.querySelectorAll('.highlighted');
-            if (highlightedClicks.length === suspiciousClicks.length) {
-                completionMessage.textContent = "Congratulations! You have identified a phishing email.";
-            } else {
-                completionMessage.textContent = "";
+        function updateCountdown() {
+            const now = new Date();
+            const year = now.getFullYear();
+            let targetDate = new Date(year, 9, 3, 0, 0, 0);
+            
+            if (now > targetDate) {
+                targetDate = new Date(year + 1, 9, 3, 0, 0, 0);
             }
+            
+            const diff = targetDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerText = 
+                `Only ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds until October 3rd!`;
         }
+        
+        function addToOutlookCalendar() {
+            const year = new Date().getFullYear();
+            let eventDate = new Date(year, 9, 3, 0, 0, 0);
+            if (new Date() > eventDate) {
+                eventDate = new Date(year + 1, 9, 3, 0, 0, 0);
+            }
+            
+            const start = eventDate.toISOString();
+            const end = new Date(eventDate.getTime() + 3600000).toISOString();
+            const subject = encodeURIComponent("Mr.Pickles's Birthday");
+            const details = encodeURIComponent("Don't forget Mr.Pickles's Birthday!");
+            const location = encodeURIComponent("" );
+            
+            const url = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${subject}&startdt=${start}&enddt=${end}&body=${details}&location=${location}&allday=true`;
+            window.open(url, "_blank");
+        }
+        
+        function createPickle() {
+            const pickle = document.createElement("div");
+            pickle.classList.add("pickle");
+            document.body.appendChild(pickle);
+            
+            let elements = [document.getElementById("title"), document.getElementById("countdown"), document.querySelector(".button")];
+            let x, y;
+            do {
+                x = Math.random() * (window.innerWidth - 250);
+                y = Math.random() * (window.innerHeight - 250);
+                isOverlapping = elements.some(el => {
+                    let rect = el.getBoundingClientRect();
+                    return x + 250 > rect.left && x < rect.right && y + 250 > rect.top && y < rect.bottom;
+                });
+            } while (isOverlapping);
+            let dx = (Math.random() - 0.5) * 8;
+            let dy = (Math.random() - 0.5) * 8;
+            
+            function animate() {
+                x += dx;
+                y += dy;
+                
+                const countdownRect = document.getElementById("countdown").getBoundingClientRect();
+                if (x + 250 > countdownRect.left && x < countdownRect.right && y + 250 > countdownRect.top && y < countdownRect.bottom) {
+                    dx *= -1;
+                    dy *= -1;
+                }
+                
+                if (x <= 0 || x >= window.innerWidth - 250) dx *= -1;
+                if (y <= 0 || y >= window.innerHeight - 250) dy *= -1;
+                
+                pickle.style.left = `${x}px`;
+                pickle.style.top = `${y}px`;
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+        
+        for (let i = 0; i < 30; i++) {
+            createPickle();
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
